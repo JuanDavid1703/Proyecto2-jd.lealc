@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+</head>
+<body>
+    <h1>Productos: escoja su orden</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Número de producto</th>
+                <th>Nombre</th>
+                <th>Ingredientes</th>
+                <th>volumen en oz</th>
+                <th>Tipo de vaso</th>
+                <th>Tipo</th>
+                <th>Calorías</th>
+                <th>Precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for producto, ingrediente, calorias in productos %}
+            <tr>
+                <td>{{producto.id}}</td>
+                <td>{{producto.nombre}}</td>
+                <!--<td>{{producto.id_ingred1}}, {{producto.id_ingred2}}, {{producto.id_ingred3}}</td>-->
+                <td>{{ingrediente}}</td>
+                <td> {{producto.volumen_oz}} onzas</td>
+                <td>{{producto.tipo_vaso}}</td>
+                <td>{{producto.tipo}}</td>
+                <td>{{calorias}}</td>
+                <td> $ {{producto.precio_publico}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <h4> Por favor escriba el número del producto de su orden en la casilla</h4>
+    <form action="/menu" method="post">
+        <label for="id_producto">Número del producto:</label>
+        <input type="text" name="id" id="id_producto" required>
+        <button type="submit"># del producto</button>
+    </form>
+</body>
+</html>

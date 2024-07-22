@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Venta_fallida</title>
+</head>
+<body>
+    <h1>!Oh¡ no, nos hemos quedado sin los siguientes productos:</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ingrediente in inventario_vacio %}
+            <tr>
+                <td>{{ingrediente}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+</body>
+</html>

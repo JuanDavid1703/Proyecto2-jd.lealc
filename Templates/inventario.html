@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventario</title>
+</head>
+<body>
+    <h1>Inventario de ingredientes</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tipo</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for ingrediente in ingredientes %}
+            <tr>
+                <td>{{ingrediente.id}}</td>
+                <td>{{ingrediente.tipo}}</td>
+                <td>{{ingrediente.nombre}}</td>
+                <td> {{ingrediente.inventario}} unidades</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Reabastecimiento</h2>
+    <h4> Por favor escriba el id del prodcuto que requiere reabastecer</h4>
+    <form action="/inventario" method="post">
+        <label for="id_abastecer">Id del ingrediente:</label>
+        <input type="text" name="id_abastecer" id="id_abastecer" required>
+        <button type="submit">Abastecer</button>
+    </form>
+</body>
+</html>
